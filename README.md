@@ -22,4 +22,3 @@ These game are amazing. All frogs on their own leafs and all the carrots are wat
 This task was difficult. I redid it twice, but for now it looks fine. I had many problems with size of icons and the button "More", I solved all my problems, but it took a long time. When I completed the task I made fatal mistake with git and deleted all my files, so i restart the course from the beginning, hah... 
 
 [DEMO](https://ambeelight.github.io/kottans-frontend/5.%20html_css_popup/) || [Files](https://github.com/Ambeelight/kottans-frontend/tree/main/5.%20html_css_popup)
-Would you like Code to periodically run 'git fetch'?
