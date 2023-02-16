@@ -16,9 +16,13 @@ Really interesting and new information for me, many of those commands look inter
 This course by [Yakov](https://www.coursera.org/learn/html-css-javascript-for-web-developers) wasn't new for me because I completed it early, it contains good information and useful tips, but its lack that course is pretty old. The tasks on Codecademy is great, I'm wonder why I didn't use it before. It was great to refresh the knowledge about HTML and CSS. All files added to the [folder](https://github.com/Ambeelight/kottans-frontend/tree/main/3.%20task_html_css_intro).
 
 ## Responsive Web Design
-These game are amazing. All frogs on their own leafs and all the carrots are watered. It was new to learn more about "grid" and use it on practise, also I know new short commands like "grid-template" or "repeat" and "flex-flow" in flexbox. All those commands I want to use in the future. Grid or Flex? Who knows, both look useful. All files added to the [folder](https://github.com/Ambeelight/kottans-frontend/tree/main/4.%20task_responsive_web_design).
+Those games are amazing. All frogs on their own leafs and all the carrots are watered. It was new to learn more about "grid" and use it on practise, also I know new short commands like "grid-template" or "repeat" and "flex-flow" in flexbox. All those commands I want to use in the future. Grid or Flex? Who knows, both look useful. All files added to the [folder](https://github.com/Ambeelight/kottans-frontend/tree/main/4.%20task_responsive_web_design).
 
 ## HTML & CSS Practice
 This task was difficult. I redid it twice, but for now it looks fine. I had many problems with size of icons and the button "More", I solved all my problems, but it took a long time. When I completed the task I made fatal mistake with git and deleted all my files, so i restart the course from the beginning, hah... 
 
 [DEMO](https://ambeelight.github.io/kottans-frontend/5.%20html_css_popup/) || [Files](https://github.com/Ambeelight/kottans-frontend/tree/main/5.%20html_css_popup)
+
+## JS Basics
+I spent much time on that task for many reasons, but I learned a lot new things. Its pleasnat to see that JS evolves and becomes better with new versions. I need to practice more with arrays and objects, especially with array methods that contain many useful commands which make code shorter and save your time. Also, I had difficulties with algorithms, sometimes I spent a ton of time on simple tasks which sees obviuos and simple when you already know how to solve it hah. Anyway, I'm going to read more and practice the algorithms because I don't feel myself confident with them.
+All screenshots added to the [folder](https://github.com/Ambeelight/kottans-frontend/tree/main/6.%20task_js_basics)
