@@ -58,6 +58,10 @@ body {
     font-size: 26px;
 }
 
+.manufacturers {
+    margin-bottom: 40px;
+}
+
 .menu ul {
     list-style: none;
     margin: auto;
@@ -74,13 +78,13 @@ body {
     justify-content: center;
     width: 140px;
     height: 140px;
-    /* min-width: 100px;
-    min-height: 100px; */
     cursor: pointer;
 }
 
 .menu-item:hover {
-    transform: scale(1.2);   
+    transform: scale(1.25);
+    background-color:rgb(241,243,247);
+    border-radius: 5px;
 }
 
 .menu-image {
