@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Manipulation</title>
+    <link rel="icon" href="./pictures/kottans.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -24,27 +25,27 @@
                     OFFICIAL MANUFACTURERS
                 </h2>
                 <nav class="menu">
-                    <ul class="menu-list">
-                        <li class="menu-item cadillac">
-                            <img src="./pictures/Cadillac.png" alt="Cadillac" class="menu-image">
+                    <ul class="menu__list">
+                        <li class="menu__item" id="cadillac">
+                            <img src="./pictures/Cadillac.png" alt="Cadillac" class="menu__image">
                         </li>
-                            <li class="menu-item ferrari">
-                            <img src="./pictures/Ferrari.png" alt="Ferrari" class="menu-image">
+                            <li class="menu__item" id="ferrari">
+                            <img src="./pictures/Ferrari.png" alt="Ferrari" class="menu__image">
                         </li>
-                        <li class="menu-item peugeot">
-                            <img src="./pictures/Peugeot.png" alt="Peugeot" class="menu-image menu-image__size">
+                        <li class="menu__item" id="peugeot">
+                            <img src="./pictures/Peugeot.png" alt="Peugeot" class="menu__image menu__image-size">
                         </li>
-                        <li class="menu-item scg">
-                            <img src="./pictures/SCG.png" alt="SCG" class="menu-image menu-image__size">
+                        <li class="menu__item" id="glickenhaus">
+                            <img src="./pictures/SCG.png" alt="SCG" class="menu__image menu__image-size">
                         </li>
-                         <li class="menu-item porsche">
-                            <img src="./pictures/Porsche.png" alt="Porsche" class="menu-image">
+                         <li class="menu__item" id="porsche">
+                            <img src="./pictures/Porsche.png" alt="Porsche" class="menu__image">
                          </li>
-                        <li class="menu-item toyota">
-                            <img src="./pictures/Toyota.png" alt="Toyota" class="menu-image">
+                        <li class="menu__item" id="toyota">
+                            <img src="./pictures/Toyota.png" alt="Toyota" class="menu__image">
                         </li>
-                        <li class="menu-item vanwall">
-                            <img src="./pictures/Vanwall.png" alt="Vanwall" class="menu-image">
+                        <li class="menu__item" id="vanwall">
+                            <img src="./pictures/Vanwall.png" alt="Vanwall" class="menu__image">
                          </li>
                     </ul>
                 </nav>
@@ -53,25 +54,27 @@
         
         <section class="content">
             <div class="container">
-                <h2 class="content__title">
-                    THE HYPERCAR CLASS
-                </h2>
-                <p class="content__info">
-                    The Hypercar category, a joint project of the FIA and the ACO, that back in 2018 was envisaged as the NEW top class of the FIA World Endurance Championship, had its debut in 2021, but it wasn't until this year when this ruleset really came of age, attracting a raft of manufacturers.
-                </p>
-                <p class="content__info">
-                    The 11th season of the FIA WEC will feature an impressive 13 Hypercar entries from seven manufacturers, highlighting the ongoing growth of the world's premier endurance racing series.        
-                </p>
-                <p class="content__info">
-                    So, what makes the Hypercar class so successful? The ruleset, accommodating cars built to LMH and LMDh technical regulations, represents a major shift in philosophy compared with the LMP1 class it replaced. It allows for far greater variety both in terms of technical approaches as well as the aesthetics of the cars, at the same time ensuring sporting equality and preventing cost escalation through the concept of performance windows.
-                </p>
-                <p class="content__info">
-                    Technical Regulations are focused on controlling performance outcome instead of setting design or geometrical restrictions, allowing manufacturers to choose cost-effective solutions as significant expenditures do not translate to performance gains.
-                </p>
-                <p class="content__info">
-                    This autonomy allows the automakers not only to replicate brand identity, maintaining the spirit of the brand and remaining relevant to their road car philosophy, but also to express true potential in terms of creativity and innovation. Less rigid aerodynamic constraints established for the cars give them the option to incorporate styling elements to the design.
-                </p>
-                <img src="./pictures/hypercar.png" alt="hypercar" class="content__image">
+                <div class="intro">
+                    <h2 class="intro__title">
+                        THE HYPERCAR CLASS
+                    </h2>
+                    <p class="intro__info">
+                        The Hypercar category, a joint project of the FIA and the ACO, that back in 2018 was envisaged as the NEW top class of the FIA World Endurance Championship, had its debut in 2021, but it wasn't until this year when this ruleset really came of age, attracting a raft of manufacturers.
+                    </p>
+                    <p class="intro__info">
+                        The 11th season of the FIA WEC will feature an impressive 13 Hypercar entries from seven manufacturers, highlighting the ongoing growth of the world's premier endurance racing series.        
+                    </p>
+                    <p class="intro__info">
+                        So, what makes the Hypercar class so successful? The ruleset, accommodating cars built to LMH and LMDh technical regulations, represents a major shift in philosophy compared with the LMP1 class it replaced. It allows for far greater variety both in terms of technical approaches as well as the aesthetics of the cars, at the same time ensuring sporting equality and preventing cost escalation through the concept of performance windows.
+                    </p>
+                    <p class="intro__info">
+                        Technical Regulations are focused on controlling performance outcome instead of setting design or geometrical restrictions, allowing manufacturers to choose cost-effective solutions as significant expenditures do not translate to performance gains.
+                    </p>
+                    <p class="intro__info">
+                        This autonomy allows the automakers not only to replicate brand identity, maintaining the spirit of the brand and remaining relevant to their road car philosophy, but also to express true potential in terms of creativity and innovation. Less rigid aerodynamic constraints established for the cars give them the option to incorporate styling elements to the design.
+                    </p>
+                    <img src="./pictures/hypercar.png" alt="hypercar" class="intro__image">
+                </div>
             </div>
         </section>
     </main>
@@ -79,12 +82,14 @@
     <footer class="footer">
         <div class="container">
             <div class="kottans">
-                <h3 class="kottans_text">© Kottans production 2023</h3>
-            <a href="#" class="kottans__link">
+                <h3 class="kottans__text">© Kottans production 2023</h3>
+            <a href="https://kottans.org/" target="_blnak" class="kottans__link">
                 <img src="./pictures/kottans.svg" alt="kottans" class="kottans__img">
             </a>
             </div>
         </div>
     </footer>
+    
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
