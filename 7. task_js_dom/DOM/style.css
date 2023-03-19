@@ -82,8 +82,14 @@ body {
 }
 
 .menu__item:hover {
-    transform: scale(1.25);
-    background-color:rgb(241,243,247);
+    transform: scale(1.2);
+    background-color:rgb(246, 247, 248);
+    border-radius: 5px;
+}
+
+.active {
+    transform: scale(1.2);
+    background-color:rgb(239, 242, 247);
     border-radius: 5px;
 }
 
@@ -92,13 +98,14 @@ body {
     max-height: 100%;
 }
 
-.menu__image-size {
+.menu__image--size {
     padding: 30px;
 }
 
 .intro {
     display: block;
 }
+
 
 .intro__image,
 .car__content-image {
@@ -127,4 +134,14 @@ body {
 
 .kottans__img {
     max-width: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+    .menu__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+}
+}
+
+@media screen and (max-width: 768px) {
 }
