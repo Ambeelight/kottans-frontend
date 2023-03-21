@@ -21,17 +21,20 @@ const removeActiveLink = () => menuItem.forEach((item) => item.classList.remove(
 
 itemList.addEventListener("click", ({target}) => {
     const itemId = target.parentElement.id;
-    
     if (target.parentElement.closest(".menu__item")) {
-        removeActiveLink();
-    
         if (target.parentElement.classList.contains("active")) {
             target.parentElement.classList.remove("active");
-        } else {
+            intro.style.display = "block";
+            carItem.style.display = "none";
+        }
+        else {
+            removeActiveLink();
+    
             intro.style.display = "none";
             carItem.style.display = "block";
             target.parentElement.classList.add("active");
             carItem.innerHTML = chosenCar(data.find((item) => item.title === itemId));
+            }
         }
-    }
+
 })
