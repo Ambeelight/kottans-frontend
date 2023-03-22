@@ -26,3 +26,7 @@ This task was difficult. I redid it twice, but for now it looks fine. I had many
 ## JS Basics
 I spent much time on that task for many reasons, but I learned a lot new things. Its pleasnat to see that JS evolves and becomes better with new versions. I need to practice more with arrays and objects, especially with array methods that contain many useful commands which make code shorter and save your time. Also, I had difficulties with algorithms, sometimes I spent a ton of time on simple tasks which sees obviuos and simple when you already know how to solve it hah. Anyway, I'm going to read more and practice the algorithms because I don't feel myself confident with them.
 All screenshots added to the [folder](https://github.com/Ambeelight/kottans-frontend/tree/main/6.%20task_js_basics)
+
+## DOM
+
+[DEMO](https://ambeelight.github.io/kottans-frontend/7.%20task_js_dom/DOM) || [Files](https://github.com/Ambeelight/kottans-frontend/tree/main/7.%20task_js_dom)
