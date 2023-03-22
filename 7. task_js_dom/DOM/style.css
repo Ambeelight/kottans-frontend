@@ -64,7 +64,6 @@ body {
     margin-bottom: 40px;
 }
 
-
 .menu ul {
     list-style: none;
     margin: auto;
@@ -140,12 +139,25 @@ body {
     max-width: 30px;
 }
 
-@media screen and (max-width: 1200px) {
-    .menu__list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+@media (max-width: 1200px) {
+.header {
+    background-position: left center;
 }
+/* .menu__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+} */
+.menu__item {
+    width: 120px;
+    height: 120px;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 990px) {
+    
+}
+
+}
+
+@media (max-width: 768px) {
+    
 }
