@@ -42,7 +42,7 @@ itemList.addEventListener("click", ({target}) => {
 const goTopBtn = document.querySelector(".go-top-btn");
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 600) {
+    if (window.scrollY > 400) {
         goTopBtn.classList.add("arrow-up--active")
     } else {
         goTopBtn.classList.remove("arrow-up--active");
