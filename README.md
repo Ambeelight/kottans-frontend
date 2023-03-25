@@ -28,5 +28,6 @@ I spent much time on that task for many reasons, but I learned a lot new things.
 All screenshots added to the [folder](https://github.com/Ambeelight/kottans-frontend/tree/main/6.%20task_js_basics)
 
 ## DOM
+It was a difficult but very useful task. All informanion about the Document Object Model was new to me so I googled a ton of intormation. I had issues with CSS and DOM, many of the issues were with logo images because they have different sizes and DOM properties. It was a pleasure to work with DOM, the site becomes "alive" and more interesting. I'm going to use all the knowledge gained and learn more about other DOM properties.
 
 [DEMO](https://ambeelight.github.io/kottans-frontend/7.%20task_js_dom/DOM) || [Files](https://github.com/Ambeelight/kottans-frontend/tree/main/7.%20task_js_dom)
