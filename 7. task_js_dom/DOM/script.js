@@ -5,12 +5,12 @@ intro = document.querySelector(".intro"),
 carItem = document.createElement("div");
 
 carItem.classList.add(".car__content");
+carItem.classList.add("disabled");
 intro.parentElement.append(carItem);
-carItem.style.display = "none";
 
 function chosenCar ({title, content, image}) {
     return `
-    <h2 style="text-transform:uppercase;">${title}</h2>
+    <h2 class="car__header">${title}</h2>
     <p>${content}</p>
     <img src=${image} class="car__content-image" alt="${title}">
      `;
@@ -24,14 +24,14 @@ itemList.addEventListener("click", ({target}) => {
     if (target.parentElement.closest(".menu__item")) {
         if (target.parentElement.classList.contains("active")) {
             target.parentElement.classList.remove("active");
-            intro.style.display = "block";
-            carItem.style.display = "none";
+            intro.classList.remove("disabled");
+            carItem.classList.add("disabled");
         }
         else {
             removeActiveLink();
-    
-            intro.style.display = "none";
-            carItem.style.display = "block";
+
+            intro.classList.add("disabled");
+            carItem.classList.remove("disabled");
             target.parentElement.classList.add("active");
             carItem.innerHTML = chosenCar(data.find((item) => item.title === itemId));
             }

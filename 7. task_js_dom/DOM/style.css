@@ -15,7 +15,7 @@ a {
     text-decoration: none;
 }
 
-.big-container {
+.content-container {
     max-width: 1220px;
     margin: 0 auto;
     padding: 0 10px;
@@ -32,7 +32,7 @@ body {
     font-size: 16px;
     line-height: 1.2;
     font-weight: 400;
-    color: #040404;
+    color: rgb(12, 12, 12);
 }
 
 .header {
@@ -48,7 +48,7 @@ body {
     align-items: center;
     font-size: 72px;
     font-family: 'Montserrat',  sans-serif;
-    color: aliceblue;
+    color: rgb(240, 248, 255);
     height: 35vh;
     margin: 0;
 }
@@ -120,7 +120,7 @@ body {
     align-items: center;
     height: 50px;
     margin-top: 20px;
-    border-top: 1px solid gray;
+    border-top: 1px solid rgb(128, 128, 128);
     box-shadow: -1px -5px 15px rgb(183, 190, 187);
 }
 
@@ -140,6 +140,18 @@ body {
     max-width: 30px;
 }
 
+.car__header {
+    text-transform:uppercase;
+}
+
+.car__content {
+    display: none;
+}
+
+.disabled {
+    display: none;
+}
+
 @media (max-width: 1200px) {
 .header {
     background-position: left center;
@@ -155,43 +167,11 @@ body {
 }
 
 .menu__list {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
-    grid-auto-rows: 100px;
-    grid-template-areas:
-      "a a a b b b c c c d d d"
-      "a a a b b b c c c d d d"
-      "e e e e f f f f g g g g"
-      "e e e e f f f f g g g g";
-    align-items: center;
-    justify-items: center;
-}
-
-.cadillac {
-    grid-area: a;
-}
-.ferrari {
-    grid-area: b;
-}
-.peugeot {
-    grid-area: c;
-}
-.glickenhaus {
-    grid-area: d;
-}
-.porsche {
-    grid-area: e;
-}
-.toyota {
-    grid-area: f;
-}
-.vanwall {
-    grid-area: g;
-}
-
-.manufacturers {
-    margin: 0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 40px;
+    width: 800px;
 }
 
 @media (max-width: 920px) {
@@ -209,26 +189,53 @@ body {
         font-size: 36px;
     }
 
-    .intro__title {
+    .intro__title, .car__header {
         font-size: 18px;
     }
 }
 
-@media (max-width: 660px) {
-    .menu__list {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 30px;
-        grid-auto-rows: 100px;
-        grid-template-areas:
-          "a a b b c c"
-          "a a b b c c"
-          "d d e e f f"
-          "d d e e f f"
-          "g g g g g g"
-          "g g g g g g";
-        align-items: center;
-        justify-items: center;
+@media (max-width: 600px) {
+    .header__title {
+        font-size: 32px;
+        height: 25vh;
+    }
+
+    .manufacturers__header {
+        font-size: 22px;
+    }
+
+    .menu__item {
+        width: 120px;
+        height: 120px;
+    }
+
+}
+
+@media (max-width: 520px) {
+    .header__title {
+        font-size: 26px;
+    }
+
+    .manufacturers__header {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 430px) {
+    .header__title {
+        font-size: 20px;
+    }
+
+    .manufacturers__header {
+        font-size: 16px;
+    }
+
+    .intro__title, .car__header {
+        font-size: 16px;
+    }
+
+    body {
+        font-size: 15px;
     }
 }
 }
