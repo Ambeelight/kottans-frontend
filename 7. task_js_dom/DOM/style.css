@@ -60,6 +60,34 @@ body {
     margin: 20px;
 }
 
+.go-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 25%;
+    opacity: 0.6;
+}
+
+.go-top-btn:hover {
+    opacity: 0.9;
+}
+
+.arrow-up--active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-top-btn__arrow {
+    width: 70%;
+    height: 70%;
+}
+
 .manufacturers {
     margin-bottom: 40px;
 }

@@ -38,3 +38,20 @@ itemList.addEventListener("click", ({target}) => {
         }
 
 })
+
+const goTopBtn = document.querySelector(".go-top-btn");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 600) {
+        goTopBtn.classList.add("arrow-up--active")
+    } else {
+        goTopBtn.classList.remove("arrow-up--active");
+    }
+})
+
+goTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+})
