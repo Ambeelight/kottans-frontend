@@ -43,7 +43,7 @@ const goTopBtn = document.querySelector(".go-top-btn");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 400) {
-        goTopBtn.classList.add("arrow-up--active")
+        goTopBtn.classList.add("arrow-up--active");
     } else {
         goTopBtn.classList.remove("arrow-up--active");
     }
@@ -54,4 +54,19 @@ goTopBtn.addEventListener("click", () => {
         top: 0,
         behavior: "smooth"
     })
+})
+
+const listBtn = document.querySelector(".menu__btn");
+const menuHeader = document.querySelector(".manufacturers__header")
+
+listBtn.addEventListener("click", () => {
+    if (itemList.classList.contains("menu__list--active")) {
+        itemList.classList.remove("menu__list--active");
+        listBtn.classList.remove("menu__btn--active");
+        menuHeader.scrollIntoView();
+
+    } else {
+        itemList.classList.add("menu__list--active");
+        listBtn.classList.add("menu__btn--active");
+    }
 })
