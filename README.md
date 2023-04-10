@@ -31,3 +31,8 @@ All screenshots added to the [folder](https://github.com/Ambeelight/kottans-fron
 It was a difficult but very useful task. All informanion about the Document Object Model was new to me so I googled a ton of intormation. I had issues with CSS and DOM, many of the issues were with logo images because they have different sizes and DOM properties. It was a pleasure to work with DOM, the site becomes "alive" and more interesting. I'm going to use all the knowledge gained and learn more about other DOM properties.
 
 [DEMO](https://ambeelight.github.io/kottans-frontend/7.%20task_js_dom/DOM) || [Files](https://github.com/Ambeelight/kottans-frontend/tree/main/7.%20task_js_dom)
+
+## A Tiny JS World
+I thought it will be the easiest task, but... I had issues with Inheritance because I didn't know how to work with "super" and the first example of the task worked badly. I had some problems building the right tree, but now it seems good. As a result, It was a useful task and a good acquaintance with OOP in JS.
+
+[DEMO](https://Ambeelight.github.io/a-tiny-JS-world) || [Files](https://github.com/Ambeelight/a-tiny-JS-world/blob/master/index.js)
