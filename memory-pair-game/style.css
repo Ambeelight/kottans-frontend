@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+body {
+    background-color: #cfeb6b;
+    height: 100vh;
+    width: 100vw;
+}
+
+.start-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+}
+
+.wrapper {
+    width: 600px;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3)
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
