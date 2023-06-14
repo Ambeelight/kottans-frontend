@@ -53,7 +53,7 @@ const shuffle = array => {
     const clonedArray = [...array]
 
     for (let i = clonedArray.length - 1; i > 0; i--) {
-        const randomIndex = Math.floor(Math.random() * (index + 1));
+        const randomIndex = Math.floor(Math.random() * (i + 1));
         const original = clonedArray[i];
 
         clonedArray[i] = clonedArray[randomIndex];
