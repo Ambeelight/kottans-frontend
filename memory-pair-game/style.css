@@ -15,6 +15,10 @@ body {
     width: 100vw;
 }
 
+button {
+    cursor: pointer;
+}
+
 .start-menu {
     position: absolute;
     top: 50%;
@@ -35,17 +39,46 @@ body {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3)
 }
 
-.stats-container {
+.stats{
     display: flex;
     justify-content: space-around;
 }
 
-.game-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-}
 
 .hidden {
     display: none;
+}
+
+.game {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: #2b2d3d;
+    transition: transform .5s easy;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    font-size: 30px;
+    text-align: center;
+    line-height: 100px;
+    background: #fafafa;
+    transform: rotateY(180deg);
+    user-select: none;
 }
