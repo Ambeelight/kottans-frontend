@@ -1,6 +1,6 @@
 export const iconCards = [
     ["cake.svg"],
-    ["cherry-juice.svg"],  
+    ["grapefruit-juice.svg"],  
     ["coffee.svg"], 
     ["donut.svg"], 
     ["ice-cream.svg"], 
