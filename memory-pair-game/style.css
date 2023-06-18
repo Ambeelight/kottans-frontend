@@ -49,7 +49,7 @@ button {
     display: none;
 }
 
-.game {
+.game-field {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -58,9 +58,25 @@ button {
 
 .card {
     position: relative;
+    perspective: 1000px; /* test */
     width: 120px;
     height: 120px;
     cursor: pointer;
+}
+
+.card-front {
+    text-align: center;
+    background: #ffffff;
+    transform: rotateY(180deg);
+    left: 0;
+}
+
+.card-back {
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background: #2b2d3d;
 }
 
 .card-front,
@@ -69,16 +85,16 @@ button {
     border-radius: 5px;
     width: 100%;
     height: 100%;
-    background: #2b2d3d;
-    transition: transform .5s easy;
+    line-height: 120px;
+    transition: transform .5s ease;
     backface-visibility: hidden;
-}
-
-.card-front {
-    font-size: 30px;
-    text-align: center;
-    line-height: 100px;
-    background: #fafafa;
-    transform: rotateY(180deg);
     user-select: none;
 }
+
+.card-flipped .card-back {
+    transform: rotateY(-180deg);
+  }
+
+.card-flipped .card-front {
+    transform: rotateY(0deg);
+  }
