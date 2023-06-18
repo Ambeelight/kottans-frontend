@@ -15,52 +15,43 @@ const startGameMenu = () => {
 
 const timer = document.querySelector(".timer");
 const movesCount = document.querySelector(".moves");
-
-
 const stopBtn = document.querySelector(".stop-button");
 
-//Create the game board and the game logic
-const createGame = () => {
-    const gameBoard = document.querySelector(".game");
-    const fragment = new DocumentFragment();
-    const items = shuffle([...iconCards, ...iconCards]);
 
-    items.forEach(item => {
-        function createCard(cardClass) {
-            const card = document.createElement('div');
-            card.classList.add(cardClass);
 
-            return card;
-        }
-        
-        const cardNode = createCard("card");
-        const cardItemFront = createCard("card-front");
-        const cardItemBack = createCard("card-back");
-        
-        cardItemFront.innerHTML = item;
-        cardItemBack.innerHTML = "?";
+const createGame = (name, item) => {
+  const cardContainer = document.querySelector(".game-field");
+  const cardElement = document.createElement("div");
+  const cardFrontElement = document.createElement("img");
+  const cardBackElement = document.createElement("div");
 
-        cardNode.appendChild(cardItemFront);
-        cardNode.appendChild(cardItemBack);
-        fragment.appendChild(cardNode);
-        
-    });
-    
-    gameBoard.appendChild(fragment);
-};
+  cardElement.classList.add("card");
+  cardFrontElement.classList.add("card-front", name);
+  cardFrontElement.src = `./icons/${item}`;
+  cardFrontElement.alt = "";
+  cardFrontElement.draggable = false;
+  cardBackElement.classList.add("card-back");
+  cardBackElement.textContent = "?";
 
-const shuffle = array => {
-    const clonedArray = [...array]
-
-    for (let i = clonedArray.length - 1; i > 0; i--) {
-        const randomIndex = Math.floor(Math.random() * (i + 1));
-        const original = clonedArray[i];
-
-        clonedArray[i] = clonedArray[randomIndex];
-        clonedArray[randomIndex] = original;
-    }
-
-    return clonedArray;
+  cardElement.appendChild(cardFrontElement);
+  cardElement.appendChild(cardBackElement);
+  cardContainer.appendChild(cardElement);
 }
 
-createGame();
+const shuffle = array => {
+  const clonedArray = [...array, ...array];
+
+  for (let i = clonedArray.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      const original = clonedArray[i];
+
+      clonedArray[i] = clonedArray[randomIndex];
+      clonedArray[randomIndex] = original;
+  }
+
+  return clonedArray;
+}
+
+const shuffledCards = shuffle(iconCards);
+
+shuffledCards.forEach((item) => createGame(item[0].slice(0, -4), item[0]));
