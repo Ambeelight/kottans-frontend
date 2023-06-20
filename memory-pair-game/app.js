@@ -1,6 +1,17 @@
 import {iconCards} from './data.js';
 
-const startGameMenu = () => {
+const wrapper = document.querySelector(".wrapper"),
+ timerElement = document.querySelector(".timer"),
+ moveCounter = document.querySelector(".move-counter"),
+ shuffledCards = shuffle(iconCards);
+
+let flippedCards = [],
+  matchedCards = [],
+  moveCount = 0,
+  timer = null,
+  seconds = 0;
+
+function createStartMenu() {
     const startGameBtn = document.createElement("button"),
      startMenu = document.createElement("div");
 
@@ -11,11 +22,15 @@ const startGameMenu = () => {
     startMenu.appendChild(startGameBtn);
 
     startGameBtn.addEventListener("click", () => {
-      shuffledCards.forEach((item) => createGame(item[0].slice(0, -4), item[0])); 
+      createGameCards();
+      setupCardMatching();
+      startTimer();
+      startMenu.classList.add("hidden");
+      wrapper.classList.remove("hidden");
   });
 };
 
-const createGame = (name, item) => {
+function createGame(name, item) {
   const cardContainer = document.querySelector(".game-field"),
    cardElement = document.createElement("div"),
    cardFrontElement = document.createElement("img"),
@@ -23,10 +38,12 @@ const createGame = (name, item) => {
 
   cardElement.classList.add("card");
   cardElement.dataset.cardIcon = `${name}`;
+
   cardFrontElement.classList.add("card-front");
   cardFrontElement.src = `./icons/${item}`;
   cardFrontElement.alt = `${name}`;
   cardFrontElement.draggable = false;
+  
   cardBackElement.classList.add("card-back");
   cardBackElement.textContent = "?";
 
@@ -35,7 +52,7 @@ const createGame = (name, item) => {
   cardContainer.appendChild(cardElement);
 }
 
-const shuffle = array => {
+function shuffle(array) {
   const clonedArray = [...array, ...array];
 
   for (let i = clonedArray.length - 1; i > 0; i--) {
@@ -49,20 +66,18 @@ const shuffle = array => {
   return clonedArray;
 }
 
-const shuffledCards = shuffle(iconCards);
+function createGameCards() {
+  shuffledCards.forEach((item) => createGame(item[0].slice(0, -4), item[0]));
+}
 
-shuffledCards.forEach((item) => createGame(item[0].slice(0, -4), item[0]));
+function setupCardMatching() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card) => {
+    cardMatching(card);
+  });
+}
 
-const moveCounter = document.querySelector(".move-counter"); // MC
-let moveCount = 0; // MC
-
-
-//Match the cards
-const cards = document.querySelectorAll('.card');
-let flippedCards = [],
- matchedCards = [];
-
-cards.forEach((card) => {
+function cardMatching(card) {
   card.addEventListener("click", () => {
     if (
       card.classList.contains("card-flipped") ||
@@ -76,17 +91,21 @@ cards.forEach((card) => {
     if (flippedCards.length === 2) {
       const card1 = flippedCards[0],
        card2 = flippedCards[1];
+       
+       // Increment move count and update move counter
+       updateMoveCounter();
+
       // Compare cards by data-attributes
       if (card1.dataset.cardIcon === card2.dataset.cardIcon) {
         matchedCards.push(card1, card2);
         flippedCards = [];
 
         // Check if all cards are matched
-        if (matchedCards.length === cards.length) {
-          console.log("You WON");
-          // win function
+        if (matchedCards.length === iconCards.length * 2) {
+          showResult();
         }
       } else {
+        // Cards are unmatched
         setTimeout(() => {
           flippedCards.forEach((card) => {
             card.classList.add("shake");
@@ -100,32 +119,47 @@ cards.forEach((card) => {
           flippedCards = [];
         }, 1000);
       };
-      moveCount++; // MC
-      moveCounter.textContent = `Moves: ${moveCount}`; // MC
     };
   });
-});
+}
 
-//Timer type??
-const stats = document.querySelector(".stats");
+function startTimer() {
+   timer = setInterval(() => {
+    seconds++;
+    timerElement.textContent = `Time: ${formatTime(seconds)}`;
+  }, 1000);
+}
 
-const createTimer = () => {
-  const timerElement = document.createElement('div');
+function formatTime(timeInSeconds) {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = timeInSeconds % 60;
 
-  timerElement.classList.add("timer");
-  stats.appendChild(timerElement);
+  return `${padZero(minutes)}:${padZero(seconds)}`;
+}
 
-  if (time > 0) {
-    setInterval(() => {
-      time--;
-      timerElement.textContent = `Time: ${time}`;
-    }, 1000)
-  }
+function padZero(num) {
+  return num.toString().padStart(2, '0');
+}
+
+function updateMoveCounter() {
+  moveCount++;
+  moveCounter.textContent = `Moves: ${moveCount}`;
+}
+
+function showResult() {
+  clearInterval(timer);
+  // const resultContainer = document.createElement("div");
+  // const resultText = document.createElement("p");
+  // const timeText = `Time: ${formatTime(seconds)}`;
+  // const matchText = `Matches: ${matchedCards.length}`;
   
-  return timerElement;
-};
+  // resultContainer.classList.add(".result-container");
+  // resultText.textContent = `Your time: ${timeText} | ${matchText} | You WON`;
+  
+  // resultContainer.appendChild(resultText);
+  // resultContainer.classList.remove("hidden");
+  console.log("YOU WON");
+}
 
-// const moveCounterElement = document.createElement('div');
-//   moveCounterElement.classList.add("move-counter");
-//   stats.appendChild(moveCounterElement);
-//   moveCounterElement.textContent = "Moves: 0"
+createStartMenu();
+ 
