@@ -98,3 +98,25 @@ button {
 .card-flipped .card-front {
     transform: rotateY(0deg);
   }
+
+.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-12px);
+    }
+    40% {
+        transform: translateX(12px);
+    }
+    60% {
+        transform: translateX(-6px);
+    }
+    80% {
+        transform: translateX(6px);
+    }
+}
