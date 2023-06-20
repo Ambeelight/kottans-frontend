@@ -6,20 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Pair Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
     <script type="module" src="app.js" defer></script>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper hidden">
         <div class="stats">
             <div class="timer">Time: 00:00</div>
-            <div class="moves-counter">Moves: 0</div>
+            <div class="move-counter">Moves: 0</div>
         </div>
         <div class="game-field"></div>
-        <button class="stop-button">Stop Game</button>
-    </div>
-    <div class="pause hidden">
-        <button class="resume">Resume Game</button>
-        <button class="restart">Restart Game</button>
+        <!-- <button class="restart">Restart Game</button> -->
     </div>
 </body>
 </html>
