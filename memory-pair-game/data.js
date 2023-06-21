@@ -1,10 +1,10 @@
 export const iconCards = [
-    ["cake.svg"],
+    ["macaron.svg"],
     ["grapefruit-juice.svg"],  
     ["coffee.svg"], 
     ["donut.svg"], 
     ["ice-cream.svg"], 
-    ["juice.svg"], 
+    ["soft-drink.svg"], 
     ["lollipop.svg"], 
     ["popsicle.svg"]
 ];
