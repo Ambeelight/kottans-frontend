@@ -22,9 +22,26 @@ button {
 
 .start-menu {
     position: absolute;
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     
+}
+
+.start-game {
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 12px;
+    transition: transform .5s;
+    color: #4db1cf;
+}
+
+.start-game:hover {
+    background-color: #4db1cf;
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.2);
 }
 
 .wrapper {
@@ -41,8 +58,11 @@ button {
 }
 
 .stats{
-    display: flex;
-    justify-content: space-around;
+    font-size: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    user-select: none;
 }
 
 
@@ -73,11 +93,16 @@ button {
 }
 
 .card-back {
-    font-size: 40px;
+    font-size: 45px;
     text-align: center;
     color: #fff;
     font-weight: bold;
     background: #4db1cf;
+}
+
+.card-back:hover {
+    transition: transform 0.3s;
+    transform: scale(1.1);
 }
 
 .card-front,
@@ -120,4 +145,8 @@ button {
     80% {
         transform: translateX(6px);
     }
+}
+
+.restart {
+    cursor: pointer;
 }
