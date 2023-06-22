@@ -3,7 +3,11 @@ import {iconCards} from './data.js';
 const wrapper = document.querySelector(".wrapper"),
  timerElement = document.querySelector(".timer"),
  moveCounter = document.querySelector(".move-counter"),
- shuffledCards = shuffle(iconCards);
+ cardPairs = [...iconCards, ...iconCards],
+ shuffledCards = shuffle(cardPairs),
+ cards = document.querySelectorAll('.card'),
+ cardContainer = document.querySelector(".game-field");
+ 
 
 let flippedCards = [],
   matchedCards = [],
@@ -11,7 +15,7 @@ let flippedCards = [],
   timer = null,
   seconds = 0;
 
-function createStartMenu() {
+function createStartMenu(shuffledCards, cards) {
     const startGameBtn = document.createElement("button"),
      startMenu = document.createElement("div");
 
@@ -22,38 +26,52 @@ function createStartMenu() {
     startMenu.appendChild(startGameBtn);
 
     startGameBtn.addEventListener("click", () => {
-      createGameCards();
-      setupCardMatching();
+      createGameCards(shuffledCards);
+      setupCardMatching(cards);
       startTimer();
       startMenu.classList.add("hidden");
       wrapper.classList.remove("hidden");
   });
 };
 
-function createGame(name, item) {
-  const cardContainer = document.querySelector(".game-field"),
-   cardElement = document.createElement("div"),
-   cardFrontElement = document.createElement("img"),
-   cardBackElement = document.createElement("div");
-
-  cardElement.classList.add("card");
-  cardElement.dataset.cardIcon = `${name}`;
-
-  cardFrontElement.classList.add("card-front");
-  cardFrontElement.src = `./icons/${item}`;
-  cardFrontElement.alt = `${name}`;
-  cardFrontElement.draggable = false;
-  
-  cardBackElement.classList.add("card-back");
-  cardBackElement.textContent = "?";
+function createGameCard(name, item) {
+  const cardElement = createCardElement(name);
+  const cardFrontElement = createCardFrontElement(name, item);
+  const cardBackElement = createCardBackElement();
 
   cardElement.appendChild(cardFrontElement);
   cardElement.appendChild(cardBackElement);
   cardContainer.appendChild(cardElement);
+
+  return cardElement;
 }
 
+function createCardElement(name) {
+  const cardElement = document.createElement("div");
+  cardElement.classList.add("card");
+  cardElement.dataset.cardIcon = name;
+  return cardElement;
+}
+
+function createCardFrontElement(name, item) {
+  const cardFrontElement = document.createElement("img");
+  cardFrontElement.classList.add("card-front");
+  cardFrontElement.src = `./icons/${item}`;
+  cardFrontElement.alt = name;
+  cardFrontElement.draggable = false;
+  return cardFrontElement;
+}
+
+function createCardBackElement() {
+  const cardBackElement = document.createElement("div");
+  cardBackElement.classList.add("card-back");
+  cardBackElement.textContent = "?";
+  return cardBackElement;
+}
+
+
 function shuffle(array) {
-  const clonedArray = [...array, ...array];
+  const clonedArray = [...array]; //
 
   for (let i = clonedArray.length - 1; i > 0; i--) {
       const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -66,12 +84,14 @@ function shuffle(array) {
   return clonedArray;
 }
 
-function createGameCards() {
-  shuffledCards.forEach((item) => createGame(item[0].slice(0, -4), item[0]));
+function createGameCards(items) {
+   items.forEach((item) => {
+    const card = createGameCard(item[0].slice(0, -4), item[0]);
+    cardMatching(card);
+  });
 }
 
-function setupCardMatching() {
-  const cards = document.querySelectorAll('.card');
+function setupCardMatching(cards) {
   cards.forEach((card) => {
     cardMatching(card);
   });
@@ -93,7 +113,7 @@ function cardMatching(card) {
        card2 = flippedCards[1];
        
        // Increment move count and update move counter
-       updateMoveCounter();
+       updateMoveCounter(++moveCount);
 
       // Compare cards by data-attributes
       if (card1.dataset.cardIcon === card2.dataset.cardIcon) {
@@ -138,13 +158,49 @@ function formatTime(timeInSeconds) {
 }
 
 function padZero(num) {
-  return num.toString().padStart(2, '0');
+  return num.toString().padStart(2, "0");
 }
 
-function updateMoveCounter() {
-  moveCount++;
-  moveCounter.textContent = `Moves: ${moveCount}`;
+function updateMoveCounter(moves) {
+  moveCounter.textContent = `Moves: ${moves}`;
 }
+
+function restartGame(cards) {
+  matchedCards = [];
+  flippedCards = [];
+  moveCount = 0;
+  updateMoveCounter(moveCount);
+
+  clearInterval(timer);
+  seconds = 0;
+  timerElement.textContent = `Time: ${formatTime(seconds)}`;
+
+   // Flip all cards back
+   cards.forEach((card) => {
+    card.classList.remove("card-flipped");
+  });
+
+  // Reshuffle the cards
+  const newShuffledCards = shuffle(shuffledCards);
+
+  // Remove existing cards from the DOM
+  cardContainer.innerHTML = "";
+
+  // Create and append new cards
+  newShuffledCards.forEach((item) => {
+    const name = item[0].slice(0, -4);
+    const card = createGameCard(name, item[0]);
+    cardContainer.appendChild(card);
+  });
+
+  cards = document.querySelectorAll('.card');
+  setupCardMatching(cards);
+  
+  startTimer();
+}
+
+// const restart = document.querySelector(".restart");
+// restart.addEventListener("click", () => restartGame(cards));
 
 function showResult() {
   clearInterval(timer);
@@ -161,5 +217,5 @@ function showResult() {
   console.log("YOU WON");
 }
 
-createStartMenu();
+createStartMenu(shuffledCards, cards);
  
