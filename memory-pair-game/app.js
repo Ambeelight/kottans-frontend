@@ -1,23 +1,24 @@
 import {iconCards} from './data.js';
 
 const wrapper = document.querySelector(".wrapper"),
- timerElement = document.querySelector(".timer"),
- moveCounter = document.querySelector(".move-counter"),
- cardPairs = [...iconCards, ...iconCards],
- shuffledCards = shuffle(cardPairs),
- cards = document.querySelectorAll('.card'),
- cardContainer = document.querySelector(".game-field");
+      timerElement = document.querySelector(".timer"),
+      moveCounter = document.querySelector(".move-counter"),
+      cardPairs = [...iconCards, ...iconCards],
+      shuffledCards = shuffle(cardPairs),
+      cards = document.querySelectorAll('.card'),
+      cardContainer = document.querySelector(".game-field");
  
 
 let flippedCards = [],
-  matchedCards = [],
-  moveCount = 0,
-  timer = null,
-  seconds = 0;
+    matchedCards = [],
+    moveCount = 0,
+    seconds = 0,
+    timer = null;
+  
 
 function createStartMenu(shuffledCards, cards) {
     const startGameBtn = document.createElement("button"),
-     startMenu = document.createElement("div");
+          startMenu = document.createElement("div");
 
     startMenu.classList.add("start-menu");
     startGameBtn.classList.add("start-game");
@@ -35,9 +36,9 @@ function createStartMenu(shuffledCards, cards) {
 };
 
 function createGameCard(name, item) {
-  const cardElement = createCardElement(name);
-  const cardFrontElement = createCardFrontElement(name, item);
-  const cardBackElement = createCardBackElement();
+  const cardElement = createCardElement(name),
+        cardFrontElement = createCardFrontElement(name, item),
+        cardBackElement = createCardBackElement();
 
   cardElement.appendChild(cardFrontElement);
   cardElement.appendChild(cardBackElement);
@@ -48,24 +49,27 @@ function createGameCard(name, item) {
 
 function createCardElement(name) {
   const cardElement = document.createElement("div");
-  cardElement.classList.add("card");
-  cardElement.dataset.cardIcon = name;
+        cardElement.classList.add("card");
+        cardElement.dataset.cardIcon = name;
+
   return cardElement;
 }
 
 function createCardFrontElement(name, item) {
   const cardFrontElement = document.createElement("img");
-  cardFrontElement.classList.add("card-front");
-  cardFrontElement.src = `./icons/${item}`;
-  cardFrontElement.alt = name;
-  cardFrontElement.draggable = false;
+        cardFrontElement.classList.add("card-front");
+        cardFrontElement.src = `./icons/${item}`;
+        cardFrontElement.alt = name;
+        cardFrontElement.draggable = false;
+
   return cardFrontElement;
 }
 
 function createCardBackElement() {
   const cardBackElement = document.createElement("div");
-  cardBackElement.classList.add("card-back");
-  cardBackElement.textContent = "?";
+        cardBackElement.classList.add("card-back");
+        cardBackElement.textContent = "?";
+
   return cardBackElement;
 }
 
@@ -74,8 +78,8 @@ function shuffle(array) {
   const clonedArray = [...array]; //
 
   for (let i = clonedArray.length - 1; i > 0; i--) {
-      const randomIndex = Math.floor(Math.random() * (i + 1));
-      const original = clonedArray[i];
+      const randomIndex = Math.floor(Math.random() * (i + 1)),
+       original = clonedArray[i];
 
       clonedArray[i] = clonedArray[randomIndex];
       clonedArray[randomIndex] = original;
@@ -122,7 +126,7 @@ function cardMatching(card) {
 
         // Check if all cards are matched
         if (matchedCards.length === iconCards.length * 2) {
-          showResult();
+          showResult(cards);
         }
       } else {
         // Cards are unmatched
@@ -151,8 +155,8 @@ function startTimer() {
 }
 
 function formatTime(timeInSeconds) {
-  const minutes = Math.floor(timeInSeconds / 60);
-  const seconds = timeInSeconds % 60;
+  const minutes = Math.floor(timeInSeconds / 60),
+        seconds = timeInSeconds % 60;
 
   return `${padZero(minutes)}:${padZero(seconds)}`;
 }
@@ -188,8 +192,8 @@ function restartGame(cards) {
 
   // Create and append new cards
   newShuffledCards.forEach((item) => {
-    const name = item[0].slice(0, -4);
-    const card = createGameCard(name, item[0]);
+    const name = item[0].slice(0, -4),
+          card = createGameCard(name, item[0]);
     cardContainer.appendChild(card);
   });
 
@@ -199,22 +203,34 @@ function restartGame(cards) {
   startTimer();
 }
 
-// const restart = document.querySelector(".restart");
-// restart.addEventListener("click", () => restartGame(cards));
+const restart = document.querySelector(".restart");
+restart.addEventListener("click", () => restartGame(cards));
 
-function showResult() {
+function showResult(cards) {
   clearInterval(timer);
-  // const resultContainer = document.createElement("div");
-  // const resultText = document.createElement("p");
-  // const timeText = `Time: ${formatTime(seconds)}`;
-  // const matchText = `Matches: ${matchedCards.length}`;
-  
-  // resultContainer.classList.add(".result-container");
-  // resultText.textContent = `Your time: ${timeText} | ${matchText} | You WON`;
-  
-  // resultContainer.appendChild(resultText);
-  // resultContainer.classList.remove("hidden");
-  console.log("YOU WON");
+
+  const resultContainer = document.createElement("div");
+  resultContainer.classList.add("result-container");
+
+  resultContainer.innerHTML = `
+    <h1 class="result-text">Congratulations! 
+    You <span class="result-stats__color">Won</span>!</h1>
+    <p class="result-stats">
+      Time: <span class="result-stats__color">${formatTime(seconds)}</span><br>
+      Matches: <span class="result-stats__color">${matchedCards.length}</span>
+    </p>
+    <div class="new-game-btn">New Game</div>
+  `;
+
+  wrapper.classList.add("shadow");
+  document.body.appendChild(resultContainer);
+
+  const newGameBtn = resultContainer.querySelector(".new-game-btn");
+  newGameBtn.addEventListener("click", () => {
+    restartGame(cards);
+    wrapper.classList.remove("shadow");
+    resultContainer.remove();
+  });
 }
 
 createStartMenu(shuffledCards, cards);
