@@ -36,3 +36,7 @@ It was a difficult but very useful task. All informanion about the Document Obje
 I thought it will be the easiest task, but... I had issues with Inheritance because I didn't know how to work with "super" and the first example of the task worked badly. I had some problems building the right tree, but now it seems good. As a result, It was a useful task and a good acquaintance with OOP in JS.
 
 [DEMO](https://Ambeelight.github.io/a-tiny-JS-world) || [Files](https://github.com/Ambeelight/a-tiny-JS-world/blob/master/index.js)
+
+## Memory Pair Game
+
+[DEMO](https://Ambeelight.github.io/memory-pair-game) || [Files](https://github.com/Ambeelight/kottans-frontend/tree/main/memory-pair-game)
