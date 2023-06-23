@@ -10,7 +10,8 @@
 }
 
 body {
-    background-color: #cfeb6b;
+    /* background-color: #cfeb6b; */
+    background-color: #e9f7f9;
     height: 100vh;
     width: 100vw;
     font-family: 'Patua One', sans-serif;
@@ -24,8 +25,7 @@ button {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
-    left: 50%;
-    
+    left: 50%; 
 }
 
 .start-game {
@@ -35,6 +35,8 @@ button {
     padding: 12px;
     transition: transform .5s;
     color: #4db1cf;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .start-game:hover {
@@ -54,7 +56,8 @@ button {
     top: 50%;
     left: 50%;
     border-radius: 8px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3)
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 .stats{
@@ -79,7 +82,7 @@ button {
 
 .card {
     position: relative;
-    perspective: 1000px; /* test */
+    perspective: 1000px; 
     width: 120px;
     height: 120px;
     cursor: pointer;
@@ -150,16 +153,21 @@ button {
 .restart {
     cursor: pointer;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
     top: 0%;
     left: 50%;
     border: none;
-    border-radius: 5px;
     text-decoration: none;
-    font-size: 22px;
     color: #fff;
     padding: 12px;
-    background: #4db1cf;
+}
+
+.restart:hover {
+    transform: translate(-50%, -10%) scale(1.1);
+}
+
+.restart-img {
+    width: 40px;
 }
 
 .shadow {
@@ -173,13 +181,14 @@ button {
     left: 50%;
     width: 440px;
     height: 250px;
-    background: #fff;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 5px;
-    /* border: 5px solid rgb(212, 43, 228); */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .result-text {
@@ -195,16 +204,57 @@ button {
 .new-game-btn {
     cursor: pointer;
     font-size: 25px;
-    color: rgb(255, 255, 255);
-    background: rgb(212, 43, 228);
+    color: #4db1cf;
+    background: #fff;
     padding: 8px;
     border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .new-game-btn:hover {
     transform: scale(1.1);
+    background: #4db1cf;
+    color: #fff;
 }
 
 .result-stats__color {
-    color: rgb(212, 43, 228);
+    color: #4db1cf;
+}
+
+@media (max-width: 620px) {
+    .wrapper {
+        width: 460px;
+    }
+
+    .game-field {
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .restart-img {
+        width: 30px;
+    }
+
+    .restart:hover {
+        transform: translate(-50%, -10%);
+    }
+
+    .stats {
+        font-size: 20px;
+    }
+
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+
+    .card-back {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .card-front, .card-back {
+        line-height: 90px;
+    }
 }
