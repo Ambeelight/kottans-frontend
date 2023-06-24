@@ -258,3 +258,31 @@ button {
         line-height: 90px;
     }
 }
+
+@media (max-width: 460px) {
+    .wrapper {
+        width: 400px;
+    }
+
+    .restart-img {
+        width: 28px;
+    }
+
+    .restart:hover {
+        transform: translate(-50%, -10%);
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-back {
+        font-size: 38px;
+        text-align: center;
+    }
+
+    .card-front, .card-back {
+        line-height: 80px;
+    }
+}
